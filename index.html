@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>白菜 VPS 导航</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    header {
+      padding: 36px 16px 28px;
+      text-align: center;
+      background: linear-gradient(135deg, #22d3ee, #38bdf8);
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      color: #020617;
+    }
+    header .logo {
+      font-size: 42px;
+      margin-bottom: 6px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    header p {
+      margin-top: 6px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+    .search-box {
+      margin: 18px auto 0;
+      max-width: 380px;
+      display: flex;
+      background: #fff;
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 12px 16px;
+      font-size: 14px;
+    }
+    .search-box button {
+      border: none;
+      background: #0ea5e9;
+      color: #fff;
+      padding: 0 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 26px auto;
+      padding: 0 14px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 14px;
+      color: #7dd3fc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: #020617;
+      border-radius: 18px;
+      padding: 18px 10px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.5);
+    }
+    .icon {
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+    .card a {
+      text-decoration: none;
+      color: #e5e7eb;
+      font-size: 14px;
+      font-weight: 600;
+      display: block;
+    }
+    footer {
+      text-align: center;
+      padding: 22px 10px 30px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">☁️</div>
+    <h1>白菜 VPS 导航</h1>
+    <p>稳定 · 性价比 · 新手友好的 VPS 资源导航</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="搜索 VPS / 云服务器 / 厂商" onkeydown="if(event.key==='Enter'){search(this.value)}" />
+      <button onclick="search(this.previousElementSibling.value)">搜索</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>🌍 国际云厂商</h2>
+      <div class="grid">
+        <div class="card"><div class="icon">☁️</div><a href="https://www.vultr.com" target="_blank">Vultr</a></div>
+        <div class="card"><div class="icon">🌐</div><a href="https://www.digitalocean.com" target="_blank">DigitalOcean</a></div>
+        <div class="card"><div class="icon">🚀</div><a href="https://www.linode.com" target="_blank">Linode</a></div>
+        <div class="card"><div class="icon">💻</div><a href="https://aws.amazon.com" target="_blank">AWS</a></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🇨🇳 国内 / 亚洲</h2>
+      <div class="grid">
+        <div class="card"><div class="icon">🟦</div><a href="https://www.aliyun.com" target="_blank">阿里云</a></div>
+        <div class="card"><div class="icon">🟩</div><a href="https://cloud.tencent.com" target="_blank">腾讯云</a></div>
+        <div class="card"><div class="icon">🟥</div><a href="https://www.huaweicloud.com" target="_blank">华为云</a></div>
+        <div class="card"><div class="icon">🇭🇰</div><a href="https://www.hkt.com" target="_blank">香港机房</a></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ VPS 工具</h2>
+      <div class="grid">
+        <div class="card"><div class="icon">📊</div><a href="https://bench.sh" target="_blank">性能测试</a></div>
+        <div class="card"><div class="icon">🔐</div><a href="https://www.putty.org" target="_blank">PuTTY</a></div>
+        <div class="card"><div class="icon">📡</div><a href="https://ping.pe" target="_blank">Ping 测试</a></div>
+        <div class="card"><div class="icon">⚙️</div><a href="#" target="_blank">更多工具</a></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 白菜 VPS 导航 · 专注 VPS / 云服务器
+  </footer>
+
+  <script>
+    function search(keyword) {
+      if (!keyword) return;
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(keyword + ' VPS'));
+    }
+  </script>
+</body>
+</html>
